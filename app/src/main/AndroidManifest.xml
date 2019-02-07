@@ -35,6 +35,10 @@
         <activity
             android:name=".ClassSessionActivity"
             android:label="@string/title_activity_class_session"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddAcadActivity"
+            android:label="@string/title_activity_add_acad"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

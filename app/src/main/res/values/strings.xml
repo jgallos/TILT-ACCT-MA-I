@@ -13,5 +13,6 @@
         <item>Android Development</item>
     </string-array>
     <string name="title_activity_class_session">Class Session</string>
+    <string name="title_activity_add_acad">AddAcadActivity</string>
 
 </resources>
