@@ -10,6 +10,6 @@ tools:context="com.programmer.jgallos.ma_i.MainActivity">
 <item
     android:id="@+id/action_logout"
     android:orderInCategory="100"
-    android:title="Logout" />
+    android:title="@string/title_activity_logout" />
 </menu>
 

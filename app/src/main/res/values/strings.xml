@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">TILT-ACCT: Instructors</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_register">RegisterActivity</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">Registration</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_logout">Logout</string>
+    <string name="title_activity_avail_classes">Your Classes</string>
+    <string name="tt_time_gmt">%1$s</string>
+
+    <string-array name="available_classes">
+        <item>Calculus</item>
+        <item>Java Programming</item>
+        <item>Android Development</item>
+    </string-array>
+    <string name="title_activity_class_session">Class Session</string>
+
 </resources>
