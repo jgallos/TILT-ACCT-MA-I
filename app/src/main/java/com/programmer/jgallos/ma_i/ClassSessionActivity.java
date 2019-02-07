@@ -118,9 +118,9 @@ public class ClassSessionActivity extends AppCompatActivity {
         if (id==R.id.action_addAcad) {
             startActivity(new Intent(ClassSessionActivity.this, AddAcadActivity.class));
         } else if (id==R.id.action_viewAcad) {
-          //  startActivity(new Intent(ClassSessionActivity.this, ViewAcadActivity.class));
+            startActivity(new Intent(ClassSessionActivity.this, ViewAcadActivity.class));
         } else if (id==R.id.action_viewAttendance) {
-          //  startActivity(new Intent(ClassSessionActivity.this, ViewAttendanceActivity.class));
+            startActivity(new Intent(ClassSessionActivity.this, ViewAttendanceActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.programmer.jgallos.ma_s.ClassSessionActivity">
+    <item
+        android:id="@+id/action_addAcad2"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_add_acad"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_viewAttendance2"
+        android:orderInCategory="100"
+        android:title="@string/title_activity_view_attendance" />
+</menu>

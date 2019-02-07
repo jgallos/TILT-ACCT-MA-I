@@ -39,6 +39,14 @@
         <activity
             android:name=".AddAcadActivity"
             android:label="@string/title_activity_add_acad"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewAcadActivity"
+            android:label="@string/title_activity_view_acad"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewAttendanceActivity"
+            android:label="@string/title_activity_view_attendance"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
