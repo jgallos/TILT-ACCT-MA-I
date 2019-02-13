@@ -25,7 +25,9 @@ import com.instacart.library.truetime.TrueTimeRx;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.TimeZone;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,11 +47,15 @@ public class ClassSessionActivity extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference databaseRef;
+    private DatabaseReference sessDatabaseRef;
+    private DatabaseReference signoutDatabaseRef;
     private DatabaseReference mDatabaseUsers;
     private FirebaseAuth mAuth;
     private FirebaseUser mCurrentUser;
 
     private String timeHolder;
+
+    String signin_key = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,11 +82,20 @@ public class ClassSessionActivity extends AppCompatActivity {
 
         signoutBtn = (Button)findViewById(R.id.signoutBtn);
         editMessage = (EditText)findViewById(R.id.editMessage);
+        signin_key = getIntent().getExtras().getString("SigninKey");
 
         databaseRef = database.getInstance().getReference().child("Android Development_feedback");
+        sessDatabaseRef = database.getInstance().getReference().child("Class Signins");
+        signoutDatabaseRef = database.getInstance().getReference().child("Android Development_attendance").child(signin_key);
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
+
+        final DatabaseReference newSignin = sessDatabaseRef.push();
+
+        newSignin.child("class").setValue("Android Development");
+        newSignin.child("userid").setValue(mCurrentUser.getUid());
+        newSignin.child("signinkey").setValue(signin_key);
 
         signoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +103,11 @@ public class ClassSessionActivity extends AppCompatActivity {
                 Toast.makeText(ClassSessionActivity.this, "Signing out...",Toast.LENGTH_SHORT).show();
                 final String feedback = editMessage.getText().toString().trim();
                 final DatabaseReference newFeedback = databaseRef.push();
+                Map<String, Object> updates = new HashMap<String, Object>();
+
+                timeHolder = updateTime(2);
+                updates.put("signout",timeHolder);
+                signoutDatabaseRef.updateChildren(updates);
 
                 newFeedback.child("feedbackLevel").setValue("5");
                 newFeedback.child("feedbackMessage").setValue(editMessage.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {

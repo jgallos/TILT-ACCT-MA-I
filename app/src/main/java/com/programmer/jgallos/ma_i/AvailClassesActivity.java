@@ -98,9 +98,11 @@ public class AvailClassesActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                         String timeHolder;
+                        final String signKey;
 
                         timeHolder = updateTime(1);
                         newAttendance.child("date").setValue(timeHolder);
+                        signKey = newAttendance.getKey();
                         timeHolder = updateTime(2);
                         newAttendance.child("signin").setValue(timeHolder);
                         newAttendance.child("signout").setValue(("default"));
@@ -112,6 +114,7 @@ public class AvailClassesActivity extends AppCompatActivity {
                                 if (task.isSuccessful()){
                                     Intent sessionIntent = new Intent(AvailClassesActivity.this, ClassSessionActivity.class);
                                     sessionIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    sessionIntent.putExtra("SigninKey",signKey);
                                     startActivity(sessionIntent);
                                     finish();
                                 }
