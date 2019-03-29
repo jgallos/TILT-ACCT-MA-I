@@ -84,7 +84,7 @@ public class ClassSessionActivity extends AppCompatActivity {
         editMessage = (EditText)findViewById(R.id.editMessage);
         signin_key = getIntent().getExtras().getString("SigninKey");
 
-        databaseRef = database.getInstance().getReference().child("Android Development_feedback");
+        databaseRef = database.getInstance().getReference().child("Android Development_lesson");
         sessDatabaseRef = database.getInstance().getReference().child("Class Signins");
         signoutDatabaseRef = database.getInstance().getReference().child("Android Development_attendance").child(signin_key);
         mAuth = FirebaseAuth.getInstance();
@@ -109,8 +109,8 @@ public class ClassSessionActivity extends AppCompatActivity {
                 updates.put("signout",timeHolder);
                 signoutDatabaseRef.updateChildren(updates);
 
-                newFeedback.child("feedbackLevel").setValue("5");
-                newFeedback.child("feedbackMessage").setValue(editMessage.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                //newFeedback.child("lesson").setValue("5");
+                newFeedback.child("lessonDescription").setValue(editMessage.getText().toString().trim()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
