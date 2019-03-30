@@ -16,4 +16,8 @@
         android:id="@+id/action_viewAttendance"
         android:orderInCategory="100"
         android:title="Attendance" />
+    <item
+        android:id="@+id/action_viewFeedback"
+        android:orderInCategory="100"
+        android:title="Feedbacks" />
 </menu>

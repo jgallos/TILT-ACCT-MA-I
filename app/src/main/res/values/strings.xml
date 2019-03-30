@@ -16,5 +16,6 @@
     <string name="title_activity_add_acad">Upload record</string>
     <string name="title_activity_view_acad">Academic record</string>
     <string name="title_activity_view_attendance">Instructor Attendance</string>
+    <string name="title_activity_view_feedback">Feedbacks</string>
 
 </resources>

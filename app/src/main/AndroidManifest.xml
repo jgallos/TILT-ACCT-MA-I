@@ -47,6 +47,10 @@
         <activity
             android:name=".ViewAttendanceActivity"
             android:label="@string/title_activity_view_attendance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewFeedbackActivity"
+            android:label="@string/title_activity_view_feedback"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

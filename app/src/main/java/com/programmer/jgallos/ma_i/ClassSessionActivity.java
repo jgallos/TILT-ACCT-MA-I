@@ -141,6 +141,8 @@ public class ClassSessionActivity extends AppCompatActivity {
             startActivity(new Intent(ClassSessionActivity.this, ViewAcadActivity.class));
         } else if (id==R.id.action_viewAttendance) {
             startActivity(new Intent(ClassSessionActivity.this, ViewAttendanceActivity.class));
+        } else if (id==R.id.action_viewFeedback) {
+            startActivity(new Intent(ClassSessionActivity.this, ViewFeedbackActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }
