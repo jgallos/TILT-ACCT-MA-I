@@ -99,11 +99,16 @@ public class AvailClassesActivity extends AppCompatActivity {
 
                         String timeHolder;
                         final String signKey;
+                        final String timeHolderBuff;
+                        final String timeHolderDateBuff;
 
                         timeHolder = updateTime(1);
+                        timeHolderDateBuff = timeHolder;
+
                         newAttendance.child("date").setValue(timeHolder);
                         signKey = newAttendance.getKey();
                         timeHolder = updateTime(2);
+                        timeHolderBuff = timeHolder;
                         newAttendance.child("signin").setValue(timeHolder);
                         newAttendance.child("signout").setValue(("default"));
 
@@ -115,6 +120,9 @@ public class AvailClassesActivity extends AppCompatActivity {
                                     Intent sessionIntent = new Intent(AvailClassesActivity.this, ClassSessionActivity.class);
                                     sessionIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     sessionIntent.putExtra("SigninKey",signKey);
+                                    sessionIntent.putExtra("SigninSubject", subject);
+                                    sessionIntent.putExtra("SigninTime",timeHolderBuff);
+                                    sessionIntent.putExtra("SigninDate", timeHolderDateBuff);
                                     startActivity(sessionIntent);
                                     finish();
                                 }

@@ -51,6 +51,14 @@
         <activity
             android:name=".ViewFeedbackActivity"
             android:label="@string/title_activity_view_feedback"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SingleFeedbackActivity"
+            android:label="@string/title_activity_single_feedback"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FeedbackReplyActivity"
+            android:label="@string/title_activity_feedback_reply"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

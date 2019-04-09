@@ -8,8 +8,8 @@
         android:orderInCategory="100"
         android:title="@string/title_activity_add_acad"
         app:showAsAction="always" />
-    <item
+    <!-- <item
         android:id="@+id/action_viewAttendance2"
         android:orderInCategory="100"
-        android:title="@string/title_activity_view_attendance" />
+        android:title="@string/title_activity_view_attendance" /> -->
 </menu>

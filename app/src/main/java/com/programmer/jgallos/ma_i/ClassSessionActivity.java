@@ -44,6 +44,8 @@ public class ClassSessionActivity extends AppCompatActivity {
 
     private EditText editMessage;
     private Button signoutBtn;
+    private TextView signSubject;
+    private TextView signTime;
 
     private FirebaseDatabase database;
     private DatabaseReference databaseRef;
@@ -56,6 +58,9 @@ public class ClassSessionActivity extends AppCompatActivity {
     private String timeHolder;
 
     String signin_key = null;
+    String signin_subject = null;
+    String signin_time = null;
+    String signin_date = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,18 +87,27 @@ public class ClassSessionActivity extends AppCompatActivity {
 
         signoutBtn = (Button)findViewById(R.id.signoutBtn);
         editMessage = (EditText)findViewById(R.id.editMessage);
-        signin_key = getIntent().getExtras().getString("SigninKey");
+        signSubject = (TextView)findViewById(R.id.subjectText);
+        signTime = (TextView)findViewById(R.id.signinText);
 
-        databaseRef = database.getInstance().getReference().child("Android Development_lesson");
+        signin_key = getIntent().getExtras().getString("SigninKey");
+        signin_subject = getIntent().getExtras().getString("SigninSubject");
+        signin_time = getIntent().getExtras().getString("SigninTime");
+        signin_date = getIntent().getExtras().getString("SigninDate");
+
+        signSubject.setText("Subject: " + signin_subject);
+        signTime.setText("Sign-in: " + signin_time);
+
+        databaseRef = database.getInstance().getReference().child(signin_subject + "_lesson");
         sessDatabaseRef = database.getInstance().getReference().child("Class Signins");
-        signoutDatabaseRef = database.getInstance().getReference().child("Android Development_attendance").child(signin_key);
+        signoutDatabaseRef = database.getInstance().getReference().child(signin_subject + "_attendance").child(signin_key);
         mAuth = FirebaseAuth.getInstance();
         mCurrentUser = mAuth.getCurrentUser();
         mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
 
         final DatabaseReference newSignin = sessDatabaseRef.push();
 
-        newSignin.child("class").setValue("Android Development");
+        newSignin.child("class").setValue(signin_subject);
         newSignin.child("userid").setValue(mCurrentUser.getUid());
         newSignin.child("signinkey").setValue(signin_key);
 
@@ -136,13 +150,30 @@ public class ClassSessionActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id==R.id.action_addAcad) {
-            startActivity(new Intent(ClassSessionActivity.this, AddAcadActivity.class));
+           // startActivity(new Intent(ClassSessionActivity.this, AddAcadActivity.class));
+            Intent addAcadIntent = new Intent(ClassSessionActivity.this, AddAcadActivity.class);
+            addAcadIntent.putExtra("SigninSubject",signin_subject);
+            addAcadIntent.putExtra("SigninDate", signin_date);
+            startActivity(addAcadIntent);
+
         } else if (id==R.id.action_viewAcad) {
-            startActivity(new Intent(ClassSessionActivity.this, ViewAcadActivity.class));
+            Intent viewAcadIntent = new Intent(ClassSessionActivity.this, ViewAcadActivity.class);
+            viewAcadIntent.putExtra("SigninSubject", signin_subject);
+            viewAcadIntent.putExtra("SigninDate", signin_date);
+            startActivity(viewAcadIntent);
+            //startActivity(new Intent(ClassSessionActivity.this, ViewAcadActivity.class));
         } else if (id==R.id.action_viewAttendance) {
-            startActivity(new Intent(ClassSessionActivity.this, ViewAttendanceActivity.class));
+            Intent viewAttendanceIntent = new Intent(ClassSessionActivity.this, ViewAttendanceActivity.class);
+            viewAttendanceIntent.putExtra("SigninSubject", signin_subject);
+            startActivity(viewAttendanceIntent);
+
+            //startActivity(new Intent(ClassSessionActivity.this, ViewAttendanceActivity.class));
         } else if (id==R.id.action_viewFeedback) {
-            startActivity(new Intent(ClassSessionActivity.this, ViewFeedbackActivity.class));
+            Intent viewFeedbackIntent = new Intent(ClassSessionActivity.this, ViewFeedbackActivity.class);
+            viewFeedbackIntent.putExtra("SigninSubject", signin_subject);
+            startActivity(viewFeedbackIntent);
+
+            //startActivity(new Intent(ClassSessionActivity.this, ViewFeedbackActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

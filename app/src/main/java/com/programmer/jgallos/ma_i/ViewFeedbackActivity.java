@@ -39,6 +39,8 @@ public class ViewFeedbackActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser mCurrentUser;
 
+    String signin_subject = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,8 @@ public class ViewFeedbackActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Android Development_feedback");
+        signin_subject = getIntent().getExtras().getString("SigninSubject");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(signin_subject + "_feedback");
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -110,7 +113,11 @@ public class ViewFeedbackActivity extends AppCompatActivity {
                 viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Intent singleActivity = new Intent(ViewFeedbackActivity.this, SingleFeedbackActivity.class);
+                        singleActivity.putExtra("FeedbackID", feedback_key);
+                        singleActivity.putExtra("SigninSubject", signin_subject);
+                        startActivity(singleActivity);
+                        finish();
                     }
                 });
 

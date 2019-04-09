@@ -30,6 +30,8 @@ public class ViewAttendanceActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private FirebaseUser mCurrentUser;
 
+    String signin_subject =null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,9 @@ public class ViewAttendanceActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Android Development_attendance");
+        signin_subject = getIntent().getExtras().getString("SigninSubject");
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child(signin_subject + "_attendance");
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
