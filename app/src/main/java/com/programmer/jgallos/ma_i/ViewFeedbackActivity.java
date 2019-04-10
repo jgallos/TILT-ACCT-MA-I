@@ -137,22 +137,22 @@ public class ViewFeedbackActivity extends AppCompatActivity {
 
         public void setLevel(String level) {
             TextView feedback_level = mView.findViewById(R.id.feedbackLevel);
-            feedback_level.setText(level);
+            feedback_level.setText("Level: " + level);
         }
 
         public void setDesc(String desc) {
             TextView feedback_desc = mView.findViewById(R.id.feedbackDesc);
-            feedback_desc.setText(desc);
+            feedback_desc.setText("Feedback: " + desc);
         }
 
         public void setStatus(String status) {
             TextView feedback_status = mView.findViewById(R.id.feedbackStatus);
-            feedback_status.setText(status);
+            feedback_status.setText("Status: " + status);
 
         }
         public void setUid(String uid) {
             TextView feedback_uid = mView.findViewById(R.id.feedbackUid);
-            feedback_uid.setText("User Id: " + uid);
+            feedback_uid.setText("Id (remove later): " + uid);
         }
 
 

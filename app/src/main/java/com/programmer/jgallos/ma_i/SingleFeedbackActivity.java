@@ -77,10 +77,11 @@ public class SingleFeedbackActivity extends AppCompatActivity {
                 String feedback_uid = (String) dataSnapshot.child("uid").getValue();
                 String feedback_username = (String) dataSnapshot.child("username").getValue();
 
-                singleLevel.setText(feedback_level);
-                singleDesc.setText(feedback_desc);
-                singleStatus.setText(feedback_status);
-                singleUID.setText(feedback_uid);
+                singleDate.setText("");
+                singleLevel.setText("Level: " + feedback_level);
+                singleDesc.setText("Feedback: " + feedback_desc);
+                singleStatus.setText("Status: " + feedback_status);
+                singleUID.setText("(remove later): " + feedback_uid);
                 if (mAuth.getCurrentUser().getUid().equals(feedback_uid)){
 
                     replyBtn.setVisibility(View.VISIBLE);
@@ -179,12 +180,12 @@ public class SingleFeedbackActivity extends AppCompatActivity {
 
         public void setTime(String time) {
             TextView response_time = mView.findViewById(R.id.textViewResponseTime);
-            response_time.setText("Sign-in Time: " + time);
+            response_time.setText("Time: " + time);
         }
 
         public void setReply(String reply) {
             TextView response_reply = mView.findViewById(R.id.textViewResponse);
-            response_reply.setText("Reply: " + reply);
+            response_reply.setText(reply);
         }
 
     }

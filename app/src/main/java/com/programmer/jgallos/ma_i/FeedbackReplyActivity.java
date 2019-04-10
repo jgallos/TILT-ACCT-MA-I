@@ -56,7 +56,7 @@ public class FeedbackReplyActivity extends AppCompatActivity {
         button_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String stringReply = editText_reply.getText().toString().trim();
+                final String stringReply = "Instructor's reply: " + editText_reply.getText().toString().trim();
                 final DatabaseReference newReply = databaseRef.push();
 
                 newReply.child("reply").setValue(stringReply);
