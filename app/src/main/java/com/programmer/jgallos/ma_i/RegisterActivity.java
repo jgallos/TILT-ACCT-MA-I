@@ -29,6 +29,9 @@ public class RegisterActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private TextView loginTextView;
 
+    private FirebaseDatabase database;
+    private DatabaseReference databaseRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +76,15 @@ public class RegisterActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 String user_id =mAuth.getCurrentUser().getUid();
                                 DatabaseReference current_user_db = mDatabase.child(user_id);
+
+                                databaseRef = database.getInstance().getReference().child(user_id + "_subjects");
+                                final DatabaseReference newSubjectList = databaseRef.push();
+
                                 current_user_db.child("name").setValue(username);
                                 current_user_db.child("role").setValue("Instructor");
+
+                                newSubjectList.child("subject").setValue("default");
+
                                 Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                                 Intent regIntent = new Intent(RegisterActivity.this, MainActivity.class);
                                 startActivity(regIntent);

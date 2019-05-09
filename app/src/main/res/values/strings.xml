@@ -17,8 +17,9 @@
     <string name="title_activity_view_acad">Academic record</string>
     <string name="title_activity_view_attendance">Instructor Attendance</string>
     <string name="title_activity_view_feedback">Feedbacks</string>
-    <string name="title_activity_single_feedback">SingleFeedbackActivity</string>
-    <string name="title_activity_feedback_reply">FeedbackReplyActivity</string>
-    <string name="title_activity_notification">NotificationActivity</string>
+    <string name="title_activity_single_feedback">Feedback Review</string>
+    <string name="title_activity_feedback_reply">Reply to feedback</string>
+    <string name="title_activity_notification">Notification</string>
+    <string name="title_activity_my_subjects">My Subjects</string>
 
 </resources>

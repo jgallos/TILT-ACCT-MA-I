@@ -63,6 +63,10 @@
         <activity
             android:name=".NotificationActivity"
             android:label="@string/title_activity_notification"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MySubjectsActivity"
+            android:label="@string/title_activity_my_subjects"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
