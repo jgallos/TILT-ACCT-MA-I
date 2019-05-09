@@ -19,5 +19,6 @@
     <string name="title_activity_view_feedback">Feedbacks</string>
     <string name="title_activity_single_feedback">SingleFeedbackActivity</string>
     <string name="title_activity_feedback_reply">FeedbackReplyActivity</string>
+    <string name="title_activity_notification">NotificationActivity</string>
 
 </resources>
