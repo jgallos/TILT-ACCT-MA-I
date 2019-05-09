@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,10 +69,11 @@ public class FeedbackReplyActivity extends AppCompatActivity {
 
                             //startActivity(new Intent(FeedbackReplyActivity.this, ViewFeedbackActivity.class));
 
-                            Intent reply_back = new Intent(FeedbackReplyActivity.this, SingleFeedbackActivity.class);
-                            reply_back.putExtra("FeedbackID",feedback_key);
-                            reply_back.putExtra("SigninSubject", signin_subject);
-                            startActivity(reply_back);
+                           // Intent reply_back = new Intent(FeedbackReplyActivity.this, SingleFeedbackActivity.class);
+                           // reply_back.putExtra("FeedbackID",feedback_key);
+                           // reply_back.putExtra("SigninSubject", signin_subject);
+                          //  startActivity(reply_back);
+                            Toast.makeText(FeedbackReplyActivity.this, "Reply sent!", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }
@@ -88,8 +90,8 @@ public class FeedbackReplyActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(FeedbackReplyActivity.this,NotificationActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -71,8 +71,8 @@ public class ViewAcadActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ViewAcadActivity.this,NotificationActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -167,7 +167,7 @@ public class ViewAcadActivity extends AppCompatActivity {
             addAcadIntent.putExtra("SigninSubject",acad_subject);
             addAcadIntent.putExtra("SigninDate", signin_date);
             startActivity(addAcadIntent);
-            finish();
+            //finish();
 
         }/* else if (id==R.id.action_viewAttendance2) {
             startActivity(new Intent(ViewAcadActivity.this, ViewAttendanceActivity.class));

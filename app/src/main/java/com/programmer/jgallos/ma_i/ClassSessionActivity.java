@@ -74,8 +74,8 @@ public class ClassSessionActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ClassSessionActivity.this,NotificationActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -129,6 +129,7 @@ public class ClassSessionActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             startActivity(new Intent(ClassSessionActivity.this,MainActivity.class));
+                            finish();
                         }
                     }
                 });

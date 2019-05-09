@@ -13,20 +13,10 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/feedbackDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:text="Date" />
-
-        <TextView
             android:id="@+id/feedbackLevel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:text="Level:" />
 
@@ -47,13 +37,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:text="Status:" />
-
-        <TextView
-            android:id="@+id/feedbackUid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="userID:" />
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

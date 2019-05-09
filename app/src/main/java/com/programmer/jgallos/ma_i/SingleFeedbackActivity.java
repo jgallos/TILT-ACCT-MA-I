@@ -47,19 +47,19 @@ public class SingleFeedbackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_feedback);
 
-        singleDate = (TextView)findViewById(R.id.sfeedbackDate);
+        //singleDate = (TextView)findViewById(R.id.sfeedbackDate);
         singleLevel = (TextView)findViewById(R.id.sfeedbackLevel);
         singleDesc = (TextView)findViewById(R.id.sfeedbackDesc);
         singleStatus = (TextView)findViewById(R.id.sfeedbackStatus);
-        singleUID = (TextView)findViewById(R.id.sfeedbackUid);
+        //singleUID = (TextView)findViewById(R.id.sfeedbackUid);
 
         signin_subject = getIntent().getExtras().getString("SigninSubject");
         mDatabase = FirebaseDatabase.getInstance().getReference().child(signin_subject + "_feedback");
         post_key = getIntent().getExtras().getString("FeedbackID");
         //Toast.makeText(SinglePostActivity.this,post_key.toString(),Toast.LENGTH_LONG).show();
         replyBtn = (Button)findViewById(R.id.buttonReply);
-        scalateBtn = (Button)findViewById(R.id.buttonScalate);
-        resolvedBtn = (Button)findViewById(R.id.buttonResolved);
+        //scalateBtn = (Button)findViewById(R.id.buttonScalate);
+        //resolvedBtn = (Button)findViewById(R.id.buttonResolved);
         mAuth = FirebaseAuth.getInstance();
         //replyBtn.setVisibility(View.INVISIBLE); for instructors all feedbacks are visible
 
@@ -78,11 +78,11 @@ public class SingleFeedbackActivity extends AppCompatActivity {
                 String feedback_uid = (String) dataSnapshot.child("uid").getValue();
                 String feedback_username = (String) dataSnapshot.child("username").getValue();
 
-                singleDate.setText("");
+                //singleDate.setText("");
                 singleLevel.setText("Level: " + feedback_level);
                 singleDesc.setText("Feedback: " + feedback_desc);
                 singleStatus.setText("Status: " + feedback_status);
-                singleUID.setText("(remove later): " + feedback_uid);
+                //singleUID.setText("(remove later): " + feedback_uid);
                 if (mAuth.getCurrentUser().getUid().equals(feedback_uid)){
 
                     replyBtn.setVisibility(View.VISIBLE);
@@ -109,8 +109,8 @@ public class SingleFeedbackActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(SingleFeedbackActivity.this,NotificationActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -120,7 +120,7 @@ public class SingleFeedbackActivity extends AppCompatActivity {
         singleReply.putExtra("SingleFeedbackID", post_key);
         singleReply.putExtra("SigninSubject", signin_subject);
         startActivity(singleReply);
-        finish();
+        //finish();
     }
 
     @Override

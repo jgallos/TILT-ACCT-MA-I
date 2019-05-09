@@ -131,9 +131,10 @@ public class AddAcadActivity extends AppCompatActivity {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if (task.isSuccessful()) {
-                                                            Intent intent = new Intent(AddAcadActivity.this, ViewAcadActivity.class);
-                                                            intent.putExtra("SigninSubject",logged_subject);
-                                                            startActivity(intent);
+                                                            //Intent intent = new Intent(AddAcadActivity.this, ViewAcadActivity.class);
+                                                            //intent.putExtra("SigninSubject",logged_subject);
+                                                            //startActivity(intent);
+                                                            Toast.makeText(AddAcadActivity.this, "Record successfully uploaded!",Toast.LENGTH_SHORT).show();
                                                             finish();
                                                         }
                                                     }
@@ -164,8 +165,8 @@ public class AddAcadActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(AddAcadActivity.this,NotificationActivity.class);
+                startActivity(intent);
             }
         });
     }

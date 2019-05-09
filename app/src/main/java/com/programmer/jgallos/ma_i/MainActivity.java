@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickSignin(View view) {
         Intent i = new Intent(this, AvailClassesActivity.class);
         startActivity(i);
-        finish();
+        //finish();
 
     }
 
