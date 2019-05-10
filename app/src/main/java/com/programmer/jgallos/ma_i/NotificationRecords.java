@@ -1,7 +1,5 @@
 package com.programmer.jgallos.ma_i;
 
-//import android.app.Notification;
-
 public class NotificationRecords {
     private String ndate, ntime, nnotif;
 
