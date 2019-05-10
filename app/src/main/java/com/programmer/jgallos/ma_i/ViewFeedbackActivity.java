@@ -86,17 +86,17 @@ public class ViewFeedbackActivity extends AppCompatActivity {
         ) {
             @Override
             protected void populateViewHolder(ViewFeedbackActivity.FeedbackViewHolder viewHolder, FeedbackRecords model, int position) {
-                mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
-                mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
+                //mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+                //mDatabaseUsers = FirebaseDatabase.getInstance().getReference().child("Users").child(mCurrentUser.getUid());
                 //Toast.makeText(ViewAcadActivity.this,mDatabaseUsers.toString(),Toast.LENGTH_LONG).show();
                 //Toast.makeText(ViewAcadActivity.this,model.getUid(),Toast.LENGTH_LONG).show();
-                if (!mDatabaseUsers.toString().equals("https://ma-s-514f2.firebaseio.com/Users/" + model.getUid())) {
+               /* if (!mDatabaseUsers.toString().equals("https://ma-s-514f2.firebaseio.com/Users/" + model.getUid())) {
                     //viewHolder.mView.setVisibility(View.GONE);
                     //viewHolder.mView.setLayoutParams(new RecyclerView.LayoutParams(0,0));
                     viewHolder.mView.setVisibility(View.VISIBLE); //set all feedback viewable by all users (for testing only)
                 } else {
                     viewHolder.mView.setVisibility(View.VISIBLE);
-                }
+                } */
 
                 // if (mDatabaseUsers.toString().equals("https://ma-s-514f2.firebaseio.com/Users/" + model.getUid())) {
                 final String feedback_key = getRef(position).getKey().toString();
