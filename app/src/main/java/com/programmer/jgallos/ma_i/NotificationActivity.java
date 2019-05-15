@@ -33,7 +33,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
+/*
+TILT-ACCT - Transparency in Learning and Teaching through Android and Cloud Computing Technologies
+Programmer: Joseph M. Gallos
+Date: May 2019
+Software License: GNU-General Public License
+*/
 public class NotificationActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
